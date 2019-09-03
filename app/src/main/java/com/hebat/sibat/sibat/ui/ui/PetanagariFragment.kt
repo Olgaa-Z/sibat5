@@ -231,7 +231,9 @@ class PetanagariFragment : Fragment(),OnMapReadyCallback, View.OnClickListener,
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        activity?.title = getString(com.hebat.sibat.sibat.R.string.title_petanagari)
         return inflater.inflate(R.layout.petanagari_fragment,null);
+
     }
 
 
