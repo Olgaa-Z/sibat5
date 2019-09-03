@@ -134,11 +134,118 @@ import com.hebat.sibat.sibat.R
 //
 //}
 
-class PetanagariFragment : Fragment(){
+class PetanagariFragment : Fragment(),OnMapReadyCallback, View.OnClickListener,
+    GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener, GoogleMap.OnMarkerClickListener {
+
+    lateinit var map: GoogleMap
+    lateinit var mp: SupportMapFragment
+    lateinit var normal: Button
+    lateinit var satelit: Button
+    @SuppressLint("MissingPermission")
+
+    lateinit var pantai_menganti : LatLng
+    lateinit var tugu_lawet : LatLng
+
+    override fun onMarkerClick(p0: Marker?): Boolean {
+        val lokasi = p0?.getTitle()
+        if(lokasi.equals("Pantai Menganti")){
+            val intent = Intent(getActivity(),DetailPeta::class.java)
+            intent?.putExtra("Title", "Pantai Menganti")
+            intent?.putExtra("URL", "https://goo.gl/maps/A8ePoaKZAtH2")
+            intent?.putExtra("Detail", getString(R.string.pantai_menganti))
+            startActivity(intent)
+        }
+        else if(lokasi.equals("Tugu Lawet")) {
+            val intent = Intent(getActivity(), DetailPeta::class.java)
+            intent?.putExtra("Title", "Tugu Lawet")
+            intent?.putExtra("URL", "https://goo.gl/maps/1nNKMBsyee92")
+            intent?.putExtra("Detail", getString(R.string.tugu_lawet))
+            startActivity(intent)
+        }
+        else{
+
+        }
+        return true
+    }
+
+    override fun onMyLocationClick(p0: Location) {
+
+    }
+
+    override fun onMyLocationButtonClick(): Boolean {
+        return false
+    }
+
+    override fun onClick(v: View?){
+
+        when (v!!.id){
+            R.id.normal -> {
+                map.mapType = GoogleMap.MAP_TYPE_NORMAL
+            }
+
+            R.id.satelit -> {
+                map.mapType = GoogleMap.MAP_TYPE_SATELLITE
+            }
+
+        }
+
+    }
+
+
+    override fun onMapReady(p0: GoogleMap){
+
+//        var pariaman: LatLng
+//        var lubukalung: LatLng
+        map= p0!!
+
+        val permission = this.context?.let {
+                        ContextCompat.checkSelfPermission(
+                it,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+        }
+
+        if (permission == PackageManager.PERMISSION_GRANTED) {
+            map.setMyLocationEnabled(true);
+            map.setOnMyLocationButtonClickListener(this);
+            map.setOnMyLocationClickListener(this);
+            map.uiSettings.setZoomControlsEnabled(true);
+        }
+
+        pantai_menganti = LatLng(-0.625578,100.119668)
+        map.addMarker(MarkerOptions().position(pantai_menganti).title("Tugu Tabuik"))
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(pantai_menganti, 10F))
+
+        tugu_lawet = LatLng(-0.6847585,100.2141347)
+        map.addMarker(MarkerOptions().position(tugu_lawet).title("Lubuak Aluang"))
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(tugu_lawet, 10F))
+
+        val builder = LatLngBounds.Builder()
+        builder.include(pantai_menganti)
+        builder.include(tugu_lawet)
+        val bounds = builder.build()
+        map.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 20))
+
+        map.setOnMarkerClickListener(this)
+
+
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        activity?.title = getString(com.hebat.sibat.sibat.R.string.title_petanagari)
-        val view = inflater.inflate(com.hebat.sibat.sibat.R.layout.petanagari_fragment, container, false)
-        return view
+        return inflater.inflate(R.layout.petanagari_fragment,null);
     }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        mp=childFragmentManager.findFragmentById(R.id.mapFragment) as SupportMapFragment
+        mp.getMapAsync(this)
+
+        normal = view.findViewById(R.id.normal)
+        satelit = view.findViewById(R.id.satelit)
+
+        normal.setOnClickListener(this)
+        satelit.setOnClickListener(this)
+
+    }
+
+
 }
