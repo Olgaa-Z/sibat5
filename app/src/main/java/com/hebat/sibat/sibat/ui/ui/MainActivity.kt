@@ -57,50 +57,49 @@ class MainActivity : AppCompatActivity() {
 //    }
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(com.hebat.sibat.sibat.R.layout.activity_main)
-        supportFragmentManager.beginTransaction()
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(com.hebat.sibat.sibat.R.layout.activity_main)
+    supportFragmentManager.beginTransaction()
+      .replace(com.hebat.sibat.sibat.R.id.container, BerandaFragment())
+      .commit()
+
+    bottom.setOnNavigationItemSelectedListener {
+      when (it.itemId){
+        com.hebat.sibat.sibat.R.id.navigation_beranda -> {
+          supportFragmentManager.beginTransaction()
             .replace(com.hebat.sibat.sibat.R.id.container, BerandaFragment())
             .commit()
-
-        bottom.setOnNavigationItemSelectedListener {
-            when (it.itemId){
-                com.hebat.sibat.sibat.R.id.navigation_beranda -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(com.hebat.sibat.sibat.R.id.container, BerandaFragment())
-                        .commit()
-                    return@setOnNavigationItemSelectedListener true
-                }
-
-                com.hebat.sibat.sibat.R.id.navigation_layanan -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(com.hebat.sibat.sibat.R.id.container, LayananFragment())
-                        .commit()
-                    return@setOnNavigationItemSelectedListener true
-                }
-                com.hebat.sibat.sibat.R.id.navigation_petanagari -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(com.hebat.sibat.sibat.R.id.container, PetanagariFragment())
-                        .commit()
-                    return@setOnNavigationItemSelectedListener true
-                }
-                com.hebat.sibat.sibat.R.id.navigation_pengaduan -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(com.hebat.sibat.sibat.R.id.container, PengaduanFragment())
-                        .commit()
-                    return@setOnNavigationItemSelectedListener true
-                }
-                com.hebat.sibat.sibat.R.id.navigation_lainnya -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(com.hebat.sibat.sibat.R.id.container, LainnyaFragment())
-                        .commit()
-                    return@setOnNavigationItemSelectedListener true
-                }
-            }
-            return@setOnNavigationItemSelectedListener false
+          return@setOnNavigationItemSelectedListener true
         }
+
+        com.hebat.sibat.sibat.R.id.navigation_layanan -> {
+          supportFragmentManager.beginTransaction()
+            .replace(com.hebat.sibat.sibat.R.id.container, LayananFragment())
+            .commit()
+          return@setOnNavigationItemSelectedListener true
+        }
+        com.hebat.sibat.sibat.R.id.navigation_petanagari -> {
+          supportFragmentManager.beginTransaction()
+            .replace(com.hebat.sibat.sibat.R.id.container, PetanagariFragment())
+            .commit()
+          return@setOnNavigationItemSelectedListener true
+        }
+        com.hebat.sibat.sibat.R.id.navigation_pengaduan -> {
+          supportFragmentManager.beginTransaction()
+            .replace(com.hebat.sibat.sibat.R.id.container, PengaduanFragment())
+            .commit()
+          return@setOnNavigationItemSelectedListener true
+        }
+        com.hebat.sibat.sibat.R.id.navigation_lainnya -> {
+          supportFragmentManager.beginTransaction()
+            .replace(com.hebat.sibat.sibat.R.id.container, LainnyaFragment())
+            .commit()
+          return@setOnNavigationItemSelectedListener true
+        }
+      }
+      return@setOnNavigationItemSelectedListener false
     }
+  }
 
 }
-

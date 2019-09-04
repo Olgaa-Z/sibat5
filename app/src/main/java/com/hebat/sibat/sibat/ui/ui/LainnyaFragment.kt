@@ -9,10 +9,10 @@ import android.view.ViewGroup
 
 class LainnyaFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        activity?.title = getString(com.hebat.sibat.sibat.R.string.title_lainnya)
-        val view = inflater.inflate(com.hebat.sibat.sibat.R.layout.lainnya_fragment, container, false)
-        return view
-    }
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    activity?.title = getString(com.hebat.sibat.sibat.R.string.title_lainnya)
+    val view = inflater.inflate(com.hebat.sibat.sibat.R.layout.lainnya_fragment, container, false)
+    return view
+  }
 
 }

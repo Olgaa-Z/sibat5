@@ -143,23 +143,39 @@ class PetanagariFragment : Fragment(),OnMapReadyCallback, View.OnClickListener,
     lateinit var satelit: Button
     @SuppressLint("MissingPermission")
 
-    lateinit var pantai_menganti : LatLng
-    lateinit var tugu_lawet : LatLng
+    lateinit var pauh : LatLng
+    lateinit var sicincin : LatLng
+    lateinit var ladanglaweh : LatLng
+    lateinit var bari : LatLng
 
     override fun onMarkerClick(p0: Marker?): Boolean {
         val lokasi = p0?.getTitle()
-        if(lokasi.equals("Pantai Menganti")){
+        if(lokasi.equals("Pauh")){
             val intent = Intent(getActivity(),DetailPeta::class.java)
-            intent?.putExtra("Title", "Pantai Menganti")
+            intent?.putExtra("Title", "pauh")
             intent?.putExtra("URL", "https://goo.gl/maps/A8ePoaKZAtH2")
-            intent?.putExtra("Detail", getString(R.string.pantai_menganti))
+            intent?.putExtra("Detail", getString(R.string.pauh))
             startActivity(intent)
         }
-        else if(lokasi.equals("Tugu Lawet")) {
+        else if(lokasi.equals("Sicincin")) {
             val intent = Intent(getActivity(), DetailPeta::class.java)
-            intent?.putExtra("Title", "Tugu Lawet")
+            intent?.putExtra("Title", "Sicincin")
             intent?.putExtra("URL", "https://goo.gl/maps/1nNKMBsyee92")
-            intent?.putExtra("Detail", getString(R.string.tugu_lawet))
+            intent?.putExtra("Detail", getString(R.string.sicincin))
+            startActivity(intent)
+        }
+        else if(lokasi.equals("Ladang Laweh")) {
+            val intent = Intent(getActivity(), DetailPeta::class.java)
+            intent?.putExtra("Title", "Ladang Laweh")
+            intent?.putExtra("URL", "https://goo.gl/maps/1nNKMBsyee92")
+            intent?.putExtra("Detail", getString(R.string.ladanglaweh))
+            startActivity(intent)
+        }
+        else if(lokasi.equals("Bari")) {
+            val intent = Intent(getActivity(), DetailPeta::class.java)
+            intent?.putExtra("Title", "Bari")
+            intent?.putExtra("URL", "https://goo.gl/maps/1nNKMBsyee92")
+            intent?.putExtra("Detail", getString(R.string.bari))
             startActivity(intent)
         }
         else{
@@ -211,17 +227,27 @@ class PetanagariFragment : Fragment(),OnMapReadyCallback, View.OnClickListener,
             map.uiSettings.setZoomControlsEnabled(true);
         }
 
-        pantai_menganti = LatLng(-0.625578,100.119668)
-        map.addMarker(MarkerOptions().position(pantai_menganti).title("Tugu Tabuik"))
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(pantai_menganti, 10F))
+        pauh = LatLng(-0.625578,100.119668)
+        map.addMarker(MarkerOptions().position(pauh).title("Pauh"))
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(pauh, 10F))
 
-        tugu_lawet = LatLng(-0.6847585,100.2141347)
-        map.addMarker(MarkerOptions().position(tugu_lawet).title("Lubuak Aluang"))
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(tugu_lawet, 10F))
+        sicincin = LatLng(-0.6847585,100.2141347)
+        map.addMarker(MarkerOptions().position(sicincin).title("Sicincin"))
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(sicincin, 10F))
+
+        ladanglaweh = LatLng(-0.6847585,100.2141347)
+        map.addMarker(MarkerOptions().position(ladanglaweh).title("Ladang Laweh"))
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(ladanglaweh, 10F))
+
+        bari = LatLng(-0.6847585,100.2141347)
+        map.addMarker(MarkerOptions().position(bari).title("Bari"))
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(bari, 10F))
 
         val builder = LatLngBounds.Builder()
-        builder.include(pantai_menganti)
-        builder.include(tugu_lawet)
+        builder.include(pauh)
+        builder.include(sicincin)
+        builder.include(ladanglaweh)
+        builder.include(bari)
         val bounds = builder.build()
         map.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 20))
 
@@ -240,6 +266,7 @@ class PetanagariFragment : Fragment(),OnMapReadyCallback, View.OnClickListener,
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         mp=childFragmentManager.findFragmentById(R.id.mapFragment) as SupportMapFragment
         mp.getMapAsync(this)
+
 
         normal = view.findViewById(R.id.normal)
         satelit = view.findViewById(R.id.satelit)

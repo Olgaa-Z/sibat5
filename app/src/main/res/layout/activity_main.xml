@@ -6,28 +6,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <FrameLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+  <FrameLayout
+          android:id="@+id/container"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
 
-    </FrameLayout>
+  </FrameLayout>
 
-    <android.support.design.widget.CoordinatorLayout
+  <android.support.design.widget.CoordinatorLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true">
+
+    <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true">
+            app:menu="@menu/navigation"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            android:background="@color/primary"
+            app:labelVisibilityMode="labeled">
 
-        <android.support.design.widget.BottomNavigationView
-                android:id="@+id/bottom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:menu="@menu/navigation"
-                app:itemIconTint="@color/white"
-                app:itemTextColor="@color/white"
-                android:background="@color/primary"
-                app:labelVisibilityMode="labeled">
-
-        </android.support.design.widget.BottomNavigationView>
-    </android.support.design.widget.CoordinatorLayout>
+    </android.support.design.widget.BottomNavigationView>
+  </android.support.design.widget.CoordinatorLayout>
 </RelativeLayout>
