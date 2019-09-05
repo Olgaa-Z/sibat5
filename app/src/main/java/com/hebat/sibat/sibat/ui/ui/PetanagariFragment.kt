@@ -227,19 +227,19 @@ class PetanagariFragment : Fragment(),OnMapReadyCallback, View.OnClickListener,
             map.uiSettings.setZoomControlsEnabled(true);
         }
 
-        pauh = LatLng(-0.625578,100.119668)
+        pauh = LatLng(-0.579208,100.270237)
         map.addMarker(MarkerOptions().position(pauh).title("Pauh"))
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(pauh, 10F))
 
-        sicincin = LatLng(-0.6847585,100.2141347)
+        sicincin = LatLng(-0.5795819,100.252240)
         map.addMarker(MarkerOptions().position(sicincin).title("Sicincin"))
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(sicincin, 10F))
 
-        ladanglaweh = LatLng(-0.6847585,100.2141347)
+        ladanglaweh = LatLng(-0.5772164,100.289635)
         map.addMarker(MarkerOptions().position(ladanglaweh).title("Ladang Laweh"))
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(ladanglaweh, 10F))
 
-        bari = LatLng(-0.6847585,100.2141347)
+        bari = LatLng(-0.5657739,100.270955)
         map.addMarker(MarkerOptions().position(bari).title("Bari"))
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(bari, 10F))
 

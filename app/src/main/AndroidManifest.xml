@@ -5,8 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
-
-
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -14,7 +12,6 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-
         <meta-data
                 android:name="com.google.android.geo.API_KEY"
                 android:value="AIzaSyDOOQyuMLU_hIGvNZK1XRd58yf-dU683SY"/>
@@ -22,11 +19,6 @@
         <activity
                 android:name=".ui.ui.MainActivity"
                 android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".ui.ui.BerandaFragment">
         </activity>
@@ -45,6 +37,23 @@
         <activity android:name=".ui.ui.berita.DetailBerita">
         </activity>
         <activity android:name=".ui.ui.DetailPeta">
+        </activity>
+        <activity
+                android:name=".ui.ui.SplashActivity"
+                android:label="@string/app_name"
+                android:noHistory="true"
+                android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.ui.layanan.Layanan">
+        </activity>
+        <activity android:name=".ui.ui.layanan.LayananAdapter">
+        </activity>
+        <activity android:name=".ui.ui.layanan.DetailLayanan">
         </activity>
     </application>
 
