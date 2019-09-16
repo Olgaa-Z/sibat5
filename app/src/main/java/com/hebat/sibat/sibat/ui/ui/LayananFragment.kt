@@ -58,7 +58,11 @@ class LayananFragment : Fragment() {
 //    }
 
 
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        activity?.title = getString(com.hebat.sibat.sibat.R.string.title_layanan)
+        val view = inflater.inflate(com.hebat.sibat.sibat.R.layout.layanan_adapter, container, false)
+        return view
+    }
 
 
 }
