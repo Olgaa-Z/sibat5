@@ -35,7 +35,7 @@ class BerandaFragment : Fragment() {
 
         berita.setOnClickListener { startActivity(Intent(activity, Berita::class.java)) }
 
-        potensi.setOnClickListener {
+        potensinagari.setOnClickListener {
             //            startActivity(
 //                Intent(
 //                    activity,
