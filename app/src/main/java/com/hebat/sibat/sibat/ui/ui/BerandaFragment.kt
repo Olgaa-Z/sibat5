@@ -35,26 +35,12 @@ class BerandaFragment : Fragment() {
 
         berita.setOnClickListener { startActivity(Intent(activity, Berita::class.java)) }
 
-        potensinagari.setOnClickListener {
-            //            startActivity(
-//                Intent(
-//                    activity,
-//                    Maps::class.java
-//                )
-//            )
-//            fm  =supportFragmentManager
-//            ft = fm.beginTransaction()
-//            ft.replace(R.id.container, Web_Wisata()).commit()
+        maps.setOnClickListener { activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, PetanagariFragment())?.commit() }
 
-//            activity?.supportFragmentManager?.beginTransaction()?.replace(
-//                R.id.container, Maps()
-//            )?.commit()
-//        }
 
             list = mutableListOf()
             listid = mutableListOf()
         }
 
 
-    }
 }

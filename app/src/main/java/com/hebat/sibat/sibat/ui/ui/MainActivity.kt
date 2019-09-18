@@ -73,18 +73,6 @@ class MainActivity : AppCompatActivity() {
           return@setOnNavigationItemSelectedListener true
         }
 
-        com.hebat.sibat.sibat.R.id.navigation_layanan -> {
-          supportFragmentManager.beginTransaction()
-            .replace(com.hebat.sibat.sibat.R.id.container, LayananFragment())
-            .commit()
-          return@setOnNavigationItemSelectedListener true
-        }
-        com.hebat.sibat.sibat.R.id.navigation_petanagari -> {
-          supportFragmentManager.beginTransaction()
-            .replace(com.hebat.sibat.sibat.R.id.container, PetanagariFragment())
-            .commit()
-          return@setOnNavigationItemSelectedListener true
-        }
         com.hebat.sibat.sibat.R.id.navigation_pengaduan -> {
           supportFragmentManager.beginTransaction()
             .replace(com.hebat.sibat.sibat.R.id.container, PengaduanFragment())

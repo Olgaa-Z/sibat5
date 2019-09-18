@@ -7,18 +7,13 @@
             android:title="@string/title_beranda"/>
 
     <item
-            android:id="@+id/navigation_layanan"
-            android:icon="@drawable/ic_dashboard_black_24dp"
-            android:title="@string/title_layanan"/>
-
-    <item
-            android:id="@+id/navigation_petanagari"
-            android:icon="@drawable/ic_notifications_black_24dp"
-            android:title="@string/title_petanagari"/>
-    <item
             android:id="@+id/navigation_pengaduan"
             android:icon="@drawable/ic_notifications_black_24dp"
             android:title="@string/title_pengaduan"/>
+    <item
+            android:id="@+id/navigation_profil"
+            android:icon="@drawable/ic_notifications_black_24dp"
+            android:title="@string/title_profil"/>
     <item
             android:id="@+id/navigation_lainnya"
             android:icon="@drawable/ic_notifications_black_24dp"

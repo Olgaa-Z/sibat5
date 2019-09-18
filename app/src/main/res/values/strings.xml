@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Sicincin HeBat</string>
-    <string name="title_beranda">Sicincin HeBat</string>
+    <string name="title_beranda">Beranda</string>
     <string name="title_layanan">Layanan</string>
     <string name="title_petanagari">Peta Nagari</string>
+    <string name="title_profil">Profil</string>
     <string name="title_pengaduan">Pengaduan</string>
     <string name="title_lainnya">Lainnya</string>
 

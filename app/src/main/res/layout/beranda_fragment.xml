@@ -474,12 +474,12 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
                         <ImageView
-                            android:id="@+id/pengumuman"
+                            android:id="@+id/layanan"
                             android:scaleType="fitXY"
                             android:layout_gravity="center"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:src="@drawable/pengumuman"
+                            android:src="@drawable/layanandua"
                             android:layout_weight="1"/>
                         <TextView
                             android:layout_marginTop="5dp"
@@ -487,7 +487,7 @@
                             android:textColor="@color/hitam"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="PENGUMUMAN "/>
+                            android:text="LAYANAN "/>
                     </LinearLayout>
                 </LinearLayout>
         <LinearLayout
@@ -502,19 +502,19 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <ImageView
-                    android:id="@+id/potensinagari"
+                    android:id="@+id/pemberitahuan"
                     android:scaleType="fitXY"
                     android:layout_gravity="center"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/potensidesa"/>
+                    android:src="@drawable/pengumuman"/>
                 <TextView
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:textColor="@color/hitam"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="POTENSI NAGARI"/>
+                    android:text="PEMBERITAHUAN"/>
             </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
@@ -522,12 +522,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
             <ImageView
-                android:id="@+id/programnagari"
+                android:id="@+id/maps"
                 android:scaleType="fitXY"
                 android:layout_gravity="center"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/programnagari"
+                android:src="@drawable/maps"
                 android:layout_weight="1"/>
             <TextView
                 android:layout_marginTop="5dp"
@@ -535,7 +535,7 @@
                 android:textColor="@color/hitam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PROGRAM NAGARI"/>
+                android:text="PETA NAGARI"/>
         </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -550,19 +550,19 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <ImageView
-                    android:id="@+id/galeri"
+                    android:id="@+id/programnagari"
                     android:scaleType="fitXY"
                     android:layout_gravity="center"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/galeri"/>
+                    android:src="@drawable/programnagari"/>
                 <TextView
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:textColor="@color/hitam"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="GALERI "/>
+                    android:text="PROGRAM NAGARI "/>
             </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
@@ -570,12 +570,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
             <ImageView
-                android:id="@+id/video"
+                android:id="@+id/penduduk"
                 android:scaleType="fitXY"
                 android:layout_gravity="center"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/video"
+                android:src="@drawable/penduduk"
                 android:layout_weight="1"/>
             <TextView
                 android:layout_marginTop="5dp"
@@ -583,7 +583,7 @@
                 android:textColor="@color/hitam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VIDEO"/>
+                android:text="PENDUDUK"/>
         </LinearLayout>
         </LinearLayout>
         </LinearLayout>
