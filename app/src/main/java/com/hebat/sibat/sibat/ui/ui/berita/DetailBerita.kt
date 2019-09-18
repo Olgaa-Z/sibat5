@@ -41,6 +41,11 @@ class DetailBerita : AppCompatActivity() {
         }else{
             getdetailberita().execute()
         }
+
+        val actionBar = supportActionBar
+        actionBar!!.title = "Detail Berita"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setDisplayHomeAsUpEnabled(true)
     }
 
     inner class getdetailberita : AsyncTask<String, Void, String>(){
@@ -85,5 +90,9 @@ class DetailBerita : AppCompatActivity() {
 //        return true
 //    }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 
 }

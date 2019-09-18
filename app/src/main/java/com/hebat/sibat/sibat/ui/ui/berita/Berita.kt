@@ -30,13 +30,18 @@ class Berita : AppCompatActivity() {
         setContentView(R.layout.berita)
         list= mutableListOf()
         get_data_berita().execute()
+
+        val actionBar = supportActionBar
+        actionBar!!.title = "Berita Nagari Sicincin"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setDisplayHomeAsUpEnabled(true)
     }
 
     inner class get_data_berita : AsyncTask<String, Void, String>(){
 
         override fun onPreExecute() {
             super.onPreExecute()
-            pd= ProgressDialog.show(this@Berita,"","Wait",true,true)
+            pd= ProgressDialog.show(this@Berita,"","Memuat Berita",true,true)
         }
 
         override fun doInBackground(vararg params: String?): String {
@@ -72,6 +77,11 @@ class Berita : AppCompatActivity() {
 
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
 
