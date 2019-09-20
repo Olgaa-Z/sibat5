@@ -2,7 +2,10 @@ package com.hebat.sibat.sibat.ui.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.hebat.sibat.sibat.R
+import com.pixplicity.easyprefs.library.Prefs
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -75,10 +78,26 @@ class MainActivity : AppCompatActivity() {
 
         com.hebat.sibat.sibat.R.id.navigation_pengaduan -> {
           supportFragmentManager.beginTransaction()
-            .replace(com.hebat.sibat.sibat.R.id.container, PengaduanFragment())
+            .replace(com.hebat.sibat.sibat.R.id.container, Pengaduan())
             .commit()
           return@setOnNavigationItemSelectedListener true
         }
+
+        com.hebat.sibat.sibat.R.id.navigation_profil -> {
+//          judul.text="Profil"
+          if(Prefs.contains("email")){
+            supportFragmentManager.beginTransaction()
+              .replace(R.id.container,ProfilFragment())
+              .commit()
+          }else{
+//            judul.text="Login"
+            supportFragmentManager.beginTransaction()
+              .replace(R.id.container,Login())
+              .commit()
+          }
+          return@setOnNavigationItemSelectedListener true
+        }
+
         com.hebat.sibat.sibat.R.id.navigation_lainnya -> {
           supportFragmentManager.beginTransaction()
             .replace(com.hebat.sibat.sibat.R.id.container, LainnyaFragment())

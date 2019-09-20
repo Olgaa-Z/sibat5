@@ -13,7 +13,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import com.hebat.sibat.sibat.R
-import com.hebat.sibat.sibat.ui.ui.RecyclerTouchListener
 import com.hebat.sibat.sibat.ui.ui.RequestHandler
 import com.hebat.sibat.sibat.ui.ui.config.Config
 import kotlinx.android.synthetic.main.berita.*

@@ -17,6 +17,7 @@ import com.hebat.sibat.sibat.ui.ui.berita.Berita
 import com.hebat.sibat.sibat.ui.ui.berita.BeritaModel
 import com.hebat.sibat.sibat.ui.ui.berita.DetailBerita
 import com.hebat.sibat.sibat.ui.ui.config.Config
+import com.hebat.sibat.sibat.ui.ui.layanan.Layanan
 import kotlinx.android.synthetic.main.beranda_fragment.*
 import org.json.JSONObject
 
@@ -43,7 +44,7 @@ class BerandaFragment : Fragment() {
 
 
         berita.setOnClickListener { startActivity(Intent(activity, Berita::class.java)) }
-
+        layanan.setOnClickListener { startActivity(Intent(activity, Layanan::class.java)) }
         maps.setOnClickListener { activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, PetanagariFragment())?.commit() }
 
 

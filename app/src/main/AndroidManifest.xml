@@ -4,8 +4,12 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
 
     <application
+            android:name=".ui.ui.config.PrefsApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -56,6 +60,16 @@
         <activity android:name=".ui.ui.layanan.DetailLayanan">
         </activity>
         <activity android:name=".ui.ui.DetailPengaduan">
+        </activity>
+        <activity android:name=".ui.ui.ProfilFragment">
+        </activity>
+        <activity android:name=".ui.ui.Signup">
+        </activity>
+        <activity android:name=".ui.ui.Login">
+        </activity>
+        <activity android:name=".ui.ui.Pengaduan">
+        </activity>
+        <activity android:name=".Register">
         </activity>
     </application>
 
