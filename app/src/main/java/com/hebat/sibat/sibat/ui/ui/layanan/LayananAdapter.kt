@@ -19,38 +19,36 @@ import kotlinx.android.synthetic.main.layanan_adapter.view.*
 class LayananAdapter (private  val list:MutableList<LayananModel>, private val context: Context):
     RecyclerView.Adapter<LayananAdapter.ViewHolder>()  {
 
-    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item=list.get(position)
+        holder.judul.text=item.judul
+        holder.judul.setOnClickListener {
+            val i= Intent(context, DetailLayanan::class.java)
+            i.putExtra("id",item.id)
+            i.putExtra("from","Layanan")
+            context.startActivity(i)
+        }
+    }
 
 
-        val v = LayoutInflater.from(context).inflate(R.layout.layanan_adapter, p0, false)
+    override fun onCreateViewHolder(parent : ViewGroup, viewType: Int): ViewHolder {
+        var  v : View
+        v = LayoutInflater.from(parent.context).inflate(R.layout.layanan_adapter, parent, false)
         return ViewHolder(v)
     }
 
     override fun getItemCount(): Int {
         return list.size
-
     }
 
-    override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        val item = list[p1]
-        p0.judul.text = item.judul
-        p0.tanggal.text = item.tanggal
-        p0.klikteks.setOnClickListener {
-            val intent = Intent(context, DetailLayanan::class.java)
-            intent.putExtra(Config.id, item.id)
-            intent.putExtra("from", "layanan")
-            context.startActivity(intent)
+    class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!){
 
+        var judul : TextView
+
+        init {
+            judul = itemView!!.findViewById(R.id.judul)
         }
-        Glide.with(context).load(Config.url_gambar + item.gambar).into(p0.image)
+
     }
 
-
-    class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
-        val image: ImageView =itemView.image
-        val judul: TextView =itemView.judul
-        val tanggal: TextView =itemView.tanggal
-        //        val btnread: Button =itemView.btnread
-        val klikteks : TextView = itemView.kliktext
-    }
 }

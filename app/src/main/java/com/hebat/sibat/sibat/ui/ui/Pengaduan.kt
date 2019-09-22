@@ -1,6 +1,7 @@
 package com.hebat.sibat.sibat.ui.ui
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -32,7 +33,8 @@ class Pengaduan : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if(Prefs.contains("email")){   //session untuk ngecek kalo dia udah login munculin halaman pengaduan
 
-            aduan.visibility=View.VISIBLE  ///mengaktifkan edittext aduan
+//            aduan.visibility=View.VISIBLE  ///mengaktifkan edittext aduan
+            startActivity(Intent(activity, Detailaduan::class.java))
 
         }
         buttonaduan.setOnClickListener{
@@ -47,9 +49,8 @@ class Pengaduan : Fragment() {
 //                getdataaduan().execute()
 
             if(Prefs.contains("email")){   //session untuk ngecek kalo dia udah login munculin halaman pengaduan
-                activity?.supportFragmentManager?.beginTransaction()
-                    ?.replace(R.id.container, Pengaduan())?.commit()
-                aduan.visibility=View.VISIBLE  ///mengaktifkan edittext aduan
+                buttonaduan.setOnClickListener { startActivity(Intent(activity, Detailaduan::class.java)) }
+//                aduan.visibility=View.VISIBLE  ///mengaktifkan edittext aduan
 
             }else{
                 Toast.makeText(activity, "Login Dahulu", Toast.LENGTH_SHORT).show()
@@ -69,11 +70,11 @@ class Pengaduan : Fragment() {
 
         override fun doInBackground(vararg args: String?): String {
             val username= Prefs.getString("email","")
-            val keluhan=aduan.text
+//            val keluhan=aduan.text
 
             val handler= RequestHandler()
             params?.put("username",username)     //email.text.toString  ->kalo take data dari edittext //usernamekalo take dari session yg udah ada like session on login
-            params?.put("keluhan",keluhan.toString())
+//            params?.put("keluhan",keluhan.toString())
 
             val result= params?.let { handler.sendPostRequest(Config.url_pengaduan, it) }
             return result?:""

@@ -1,73 +1,78 @@
-package com.hebat.sibat.sibat.ui.ui.layanan
+package com.hebat.sibat.sibat.ui.ui.pemberitahuan
 
 import android.app.ProgressDialog
 import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import com.hebat.sibat.sibat.R
 import com.hebat.sibat.sibat.ui.ui.RequestHandler
 import com.hebat.sibat.sibat.ui.ui.config.Config
-import kotlinx.android.synthetic.main.layanan.*
+import kotlinx.android.synthetic.main.pemberitahuan.*
+import kotlinx.android.synthetic.main.toolbardua.*
 import org.json.JSONObject
 
-class Layanan : AppCompatActivity() {
+class Pemberitahuan : AppCompatActivity() {
 
-    private var list:MutableList<LayananModel>?=null
-    private var pd: ProgressDialog?=null
+    private var list: MutableList<PemberitahuanModel>? = null
+    private var pd: ProgressDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.layanan)
-        list= mutableListOf()
-        get_data_layanan().execute()
+        setContentView(R.layout.pemberitahuan)
+        list = mutableListOf()
+        val execute = get_data_pemberitahuan().execute()
 
         val actionBar = supportActionBar
-        actionBar!!.title = "Layanan Nagari Sicincin"
+        actionBar!!.title = "Pemberitahuan"
         actionBar.setDisplayHomeAsUpEnabled(true)
         actionBar.setDisplayHomeAsUpEnabled(true)
     }
 
-    inner class get_data_layanan : AsyncTask<String, Void, String>(){
+
+    inner class get_data_pemberitahuan : AsyncTask<String, Void, String>() {
 
         override fun onPreExecute() {
             super.onPreExecute()
-            pd= ProgressDialog.show(this@Layanan,"","Wait",true,true)
+            pd= ProgressDialog.show(this@Pemberitahuan,"","Wait",true,true)
         }
+
 
         override fun doInBackground(vararg params: String?): String {
 
             val handler= RequestHandler()
-            val result=handler.sendGetRequest(Config.url_berita) //"http://192.168.43.93/newss/index.php/Webservice/select_berita"
-            Log.d("String",result)
+            val result=handler.sendGetRequest(Config.url_pengumuman)
             return result
         }
 
         override fun onPostExecute(result: String?) {
+            super.onPostExecute(result)
+
+            pd?.dismiss()
             val objek= JSONObject(result)
             val array=objek.getJSONArray("data")
             for (i in 0 until array.length()){
                 val data=array.getJSONObject(i)
-                val model= LayananModel()
-                model.id=data.getString("id_berita")
-                model.judul=data.getString("judul")
-                model.isi=data.getString("isi")
+                val model= PemberitahuanModel()
+                model.id=data.getString("id_pengumuman")
                 model.gambar=data.getString("gambar")
+                model.judul=data.getString("judul")
                 model.tanggal=data.getString("tanggal")
                 list?.add(model)
                 val adapter= list?.let {
-                    LayananAdapter(
+                    PemberitahuanAdapter(
                         it,
-                        this@Layanan
+                        this@Pemberitahuan
                     )
                 }
-                rcl.layoutManager= LinearLayoutManager(this@Layanan)
-                rcl.adapter=adapter
+                rc.layoutManager= LinearLayoutManager(this@Pemberitahuan)
+                rc.adapter=adapter
             }
-            super.onPostExecute(result)
-
         }
+
+
+
+
 
     }
 

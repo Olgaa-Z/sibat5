@@ -419,9 +419,11 @@
         <com.synnapps.carouselview.CarouselView
                 android:id="@+id/imageslider"
                 android:layout_height="210dp"
-                android:layout_width="match_parent"
+                android:layout_width="340dp"
+                android:layout_centerHorizontal="true"
                 android:layout_marginBottom="3dp"
                 app:fillColor="#FFFFFFFF"
+                android:layout_marginTop="5dp"
                 app:pageColor="#00000000"
                 app:radius="6dp"
                 app:slideInterval="3000"

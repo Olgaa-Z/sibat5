@@ -18,6 +18,7 @@ import com.hebat.sibat.sibat.ui.ui.berita.BeritaModel
 import com.hebat.sibat.sibat.ui.ui.berita.DetailBerita
 import com.hebat.sibat.sibat.ui.ui.config.Config
 import com.hebat.sibat.sibat.ui.ui.layanan.Layanan
+import com.hebat.sibat.sibat.ui.ui.pemberitahuan.Pemberitahuan
 import kotlinx.android.synthetic.main.beranda_fragment.*
 import org.json.JSONObject
 
@@ -45,6 +46,7 @@ class BerandaFragment : Fragment() {
 
         berita.setOnClickListener { startActivity(Intent(activity, Berita::class.java)) }
         layanan.setOnClickListener { startActivity(Intent(activity, Layanan::class.java)) }
+        pemberitahuan.setOnClickListener { startActivity(Intent(activity, Pemberitahuan::class.java)) }
         maps.setOnClickListener { activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, PetanagariFragment())?.commit() }
 
 
@@ -83,7 +85,7 @@ class BerandaFragment : Fragment() {
                     model.id = data.getString("id_berita")
                     model.judul = data.getString("judul")
                     model.isi = data.getString("isi")
-                    model.gambar = Config.url_galerifoto + data.getString("gambar")
+                    model.gambar = Config.url_gambar + data.getString("gambar")
                     model.tanggal = data.getString("tanggal")
                     list?.add(model.gambar ?: "")
                     listid?.add(model.id ?: "")

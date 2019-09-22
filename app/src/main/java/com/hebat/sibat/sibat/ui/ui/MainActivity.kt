@@ -2,6 +2,7 @@ package com.hebat.sibat.sibat.ui.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.hebat.sibat.sibat.Aduan
 import com.hebat.sibat.sibat.R
 import com.pixplicity.easyprefs.library.Prefs
 import kotlinx.android.synthetic.main.activity_main.*

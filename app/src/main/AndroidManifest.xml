@@ -71,6 +71,42 @@
         </activity>
         <activity android:name=".Register">
         </activity>
+        <activity android:name=".Aduan">
+        </activity>
+        <activity
+                android:name=".ui.ui.Detailaduan"
+                android:parentActivityName=".ui.ui.MainActivity">
+        </activity>
+        <activity android:name=".ui.ui.pemberitahuan.Pemberitahuan">
+        </activity>
+        <activity android:name=".ui.ui.pemberitahuan.PemberitahuanAdapter">
+        </activity>
+        <activity android:name=".ui.ui.pemberitahuan.DetailPemberitahuan">
+        </activity>
+        <activity android:name=".ui.ui.Video">
+        </activity>
+        <activity android:name=".ui.ui.Tentang">
+        </activity>
+        <activity android:name=".ui.ui.Privacy">
+        </activity>
+        <activity android:name=".ui.ui.lembaga.Lembaga">
+        </activity>
+        <activity android:name=".ui.ui.lembaga.LembagaAdapter">
+        </activity>
+        <activity android:name=".ui.ui.lembaga.DetailLembaga">
+        </activity>
+        <activity android:name=".ui.ui.potensinagari.Potensinagari">
+        </activity>
+        <activity android:name=".ui.ui.potensinagari.PotensinagariAdapter">
+        </activity>
+        <activity android:name=".ui.ui.potensinagari.DetailPotensinagari">
+        </activity>
+        <activity android:name=".ui.ui.Profilnagari.Profilnagari">
+        </activity>
+        <activity android:name=".ui.ui.Profilnagari.ProfilnagariAdapter">
+        </activity>
+        <activity android:name=".ui.ui.Profilnagari.DetailProfilnagari">
+        </activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.hebat.sibat.sibat;
+package com.hebat.sibat.sibat.ui.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -7,66 +7,49 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.hebat.sibat.sibat.ui.ui.Detailaduan;
-import com.hebat.sibat.sibat.ui.ui.Login;
-import com.hebat.sibat.sibat.ui.ui.ProfilFragment;
-import com.hebat.sibat.sibat.ui.ui.config.Config;
+import com.hebat.sibat.sibat.R;
+import com.hebat.sibat.sibat.Register;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Register extends AppCompatActivity {
+public class Detailaduan extends AppCompatActivity {
 
     Intent intent;
-    EditText email, regPass, regConfPass;
+    EditText keluhan;
     Button btnReg;
     int success;
-    TextView textlogin;
     ProgressDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-        email = findViewById(R.id.email);
-        regPass = findViewById(R.id.password);
-        regConfPass = findViewById(R.id.confirmpassword);
-        textlogin = findViewById(R.id.textlogin);
-        btnReg = findViewById(R.id.btnsignup);
+        setContentView(R.layout.detailaduan);
+        keluhan = findViewById(R.id.keluhan);
+        btnReg = findViewById(R.id.buttonaduan);
 
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                runningReg(email, regPass, regConfPass);
+                runningReg(keluhan);
 
-            }
-        });
-
-        textlogin.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Register.this, ProfilFragment.class);
-                startActivity(intent);
             }
         });
     }
 
-    private void runningReg(final EditText email, final EditText regPass, final EditText regConfPass) {
+    private void runningReg(final EditText keluhan) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
-        pDialog.setMessage("Register ...");
+        pDialog.setMessage("Aduan ...");
         showDialog();
-        AndroidNetworking.post("http://192.168.43.93/desalauwba/api/register.php")
+        AndroidNetworking.post("http://192.168.43.93/desalauwba/api/pengaduan.php")
                 .addBodyParameter("id", "") //id bersifat Auto_Increment tidak perlu diisi/(diisi NULL) cek create.php
-                .addBodyParameter("email", email.getText().toString()) //mengirimkan data nama yang akan diisi dengan varibel nama
-                .addBodyParameter("password", regPass.getText().toString()) //mengirimkan data agama yang akan diisi dengan varibel agama
-                .addBodyParameter("confirm_password", regConfPass.getText().toString())
+                .addBodyParameter("keluhan", keluhan.getText().toString()) //mengirimkan data nama yang akan diisi dengan varibel nama
                 .setPriority(Priority.HIGH)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
@@ -80,9 +63,7 @@ public class Register extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),
                                         response.getString("message"), Toast.LENGTH_LONG).show();
 
-                                email.setText("");
-                                regPass.setText("");
-                                regConfPass.setText("");
+                                keluhan.setText("");
                             }else{
                                 Toast.makeText(getApplicationContext(),
                                         response.getString("message"), Toast.LENGTH_LONG).show();
@@ -102,11 +83,11 @@ public class Register extends AppCompatActivity {
     }
 
     private void showMessage(String message) {
-        Toast.makeText(Register.this, message, Toast.LENGTH_LONG).show();
+        Toast.makeText(Detailaduan.this, message, Toast.LENGTH_LONG).show();
     }
 
     public void login(View view) {
-        intent = new Intent(Register.this, Login.class);
+        intent = new Intent(Detailaduan.this, Detailaduan.class);
         finish();
         startActivity(intent);
     }

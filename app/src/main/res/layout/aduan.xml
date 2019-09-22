@@ -29,7 +29,14 @@ Aduan Masyarakat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-
+    <EditText
+            android:layout_centerVertical="true"
+            android:hint="Aduan"
+            android:visibility="gone"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/aduan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     <Button
             android:id="@+id/buttonaduan"
